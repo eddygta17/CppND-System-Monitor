@@ -18,10 +18,6 @@ System::System()
         
         Processor processor;
         cpu_ = processor;
-        uptime_ = LinuxParser::UpTime();
-        memutil_ = LinuxParser::MemoryUtilization();
-        runningprocesses_ = LinuxParser::RunningProcesses();
-        totalprocesses_ = LinuxParser::TotalProcesses();
 
         vector<int> processids = LinuxParser::Pids();
         for (int processid : processids) {
@@ -40,16 +36,16 @@ vector<Process>& System::Processes() { return processes_; }
 std::string System::Kernel() { return kernel_; }
 
 // TODO: Return the system's memory utilization
-float System::MemoryUtilization() { return memutil_; }
+float System::MemoryUtilization() { return LinuxParser::MemoryUtilization(); }
 
 // TODO: Return the operating system name
 std::string System::OperatingSystem() { return os_; }
 
 // TODO: Return the number of processes actively running on the system
-int System::RunningProcesses() { return 0; }
+int System::RunningProcesses() { return LinuxParser::RunningProcesses(); }
 
 // TODO: Return the total number of processes on the system
-int System::TotalProcesses() { return totalprocesses_; }
+int System::TotalProcesses() { return LinuxParser::TotalProcesses(); }
 
 // TODO: Return the number of seconds since the system started running
-long int System::UpTime() { return uptime_; }
+long int System::UpTime() { return LinuxParser::UpTime(); }
