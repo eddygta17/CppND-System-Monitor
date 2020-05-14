@@ -25,6 +25,10 @@ class System {
   std::string const os_;
   std::string const kernel_;
   std::vector<Process> processes_ = {};
+  int runningprocesses_;
+  int totalprocesses_;
+  long int uptime_;
+  float memutil_;
  
 };
 
