@@ -14,7 +14,7 @@ float Processor::Utilization() {
         softirq >> steal >> guest >> guest_nice;
   }
 
-  // Method from https://stackoverflow.com/a/23376195
+
   int idletime = std::stoi(idle) + std::stoi(iowait);
   int nonidletime = std::stoi(user) + std::stoi(nice) + std::stoi(system) + std::stoi(irq) + std::stoi(softirq) + std::stoi(steal);
   float totaltime = idletime + nonidletime;
