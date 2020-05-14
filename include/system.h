@@ -21,10 +21,11 @@ class System {
   System();
   // TODO: Define any necessary private members
  private:
-  Processor cpu_ = {};
+  Processor cpu_;
   std::string const os_;
   std::string const kernel_;
-  std::vector<Process> processes_ = {};
+  std::vector<Process> processes_;
+  bool static compareProcesses(Process p, Process q);
 
  
 };
